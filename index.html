@@ -11,7 +11,7 @@
   <body>
     <div id="app">
         <p>{{ message }}</p>
-        <button v-on:click="reverseMessage">Reverse Message</button>
+        <button @click="reverseMessage">Reverse Message</button>
      </div>
     <script>
     // service workerの登録関係
@@ -26,24 +26,14 @@
 
   createApp({
     setup() {
-      const message = ref('Hello vue!')
-      return {
-        message
+      const message = ref('Hello vue3!')
+      function reverseMessage() {
+        this.message = this.message.split('').reverse().join('')
       }
+      return { message,  reverseMessage }
     }
   }).mount('#app')
-    // vue.jsの設定関係
-  //  var app = new Vue({
-  //    el: '#app',
-  //    data: {
- //       message: 'Hello Vue!'
-  //    },
- //     methods: {
-  //      reverseMessage: function () {
-   //       this.message = this.message.split('').reverse().join('')
-    //    }
- //     }
- //   });
+
     </script>
   </body>
 </html>
