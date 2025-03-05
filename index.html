@@ -11,7 +11,7 @@
   <body>
     <div id="app">
         <p>{{ message }}</p>
-        <button @click="reverseMessage">Reverse Message</button>
+        <button @click="increment">{{count}}</button>
      </div>
     <script>
     // service workerの登録関係
@@ -27,10 +27,11 @@
   createApp({
     setup() {
       const message = ref('Hello vue3!')
-      function reverseMessage() {
-        this.message = 'hello!! ~3'
+      const num=ref(0)
+      function increment() {
+        num.value++
       }
-      return { message,  reverseMessage }
+      return { message,  num ,increment }
     }
   }).mount('#app')
 
