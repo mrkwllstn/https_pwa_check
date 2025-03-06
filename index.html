@@ -31,12 +31,8 @@
     setup() {
       let message = ref('Hello vue3!')
       const num=ref(0)
-      function flash() {
-        message='\\flash//'
-      }
-      function increment() {
-        num.value++
-      }
+      const flash = () =>message.value='\\flash//'
+      const increment = () => num.value++
       return { message,  num ,increment,flash }
     }
   }).mount('#app')
