@@ -11,9 +11,11 @@
   <body>
     <div id="app">
         <p>{{ message }}</p>
-        <button @click="flash"> push! ww </button>
+        <button @mousedown="flash"  @mouseup="prev"> push! ww </button>
         <p>
-          push-> increment<button @click="increment"> {{num}} </button>
+          push-> <button @click="increment"> increment+ </button>
+           {{num}}
+          <button @click="decrement"> decrement- </button>
         </p>
      </div>
     <script>
@@ -29,11 +31,14 @@
 
   createApp({
     setup() {
-      let message = ref('Hello vue3!')
+      const messe ='Hello vue3!'
+      let message = ref(messe)
       const num=ref(0)
       const flash = () => message.value="//flash//"
+      const prev = () => message.value=messe
       const increment = () => num.value++
-      return { message,  num ,increment,flash }
+      const decrement = () => num.value--
+      return { message,  num ,increment,flash,decrement,prev }
     }
   }).mount('#app')
 
