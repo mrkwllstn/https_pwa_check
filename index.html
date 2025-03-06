@@ -11,7 +11,10 @@
   <body>
     <div id="app">
         <p>{{ message }}</p>
-        <button @click="increment"> {{num}} </button>
+        <button @click="flash"> push! ww </button>
+        <p>
+          push-> increment<button @click="increment"> {{num}} </button>
+        </p>
      </div>
     <script>
     // service workerの登録関係
@@ -28,10 +31,13 @@
     setup() {
       const message = ref('Hello vue3!')
       const num=ref(0)
+      function flash() {
+        message='\\flash//'
+      }
       function increment() {
         num.value++
       }
-      return { message,  num ,increment }
+      return { message,  num ,increment,flash }
     }
   }).mount('#app')
 
